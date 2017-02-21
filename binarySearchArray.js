@@ -51,3 +51,19 @@ array:
 target:
 16
  */
+
+// non-recursive version
+var binarySearch = function (array, target) {
+  var low = 0, high = array.length - 1, mid;
+  while (low <= high) {
+    mid = Math.floor((low + high) / 2);
+    if (array[mid] === target) {
+      return mid;
+    } else if (array[mid] > target) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }    
+  }  
+  return -1;
+};
